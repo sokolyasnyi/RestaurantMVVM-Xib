@@ -16,6 +16,8 @@
 		279013B92AB9F22A009092CC /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013B72AB9F22A009092CC /* StartViewController.swift */; };
 		279013BA2AB9F22A009092CC /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279013B82AB9F22A009092CC /* StartViewController.xib */; };
 		279013BE2AB9F26D009092CC /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013BD2AB9F26D009092CC /* StartViewModel.swift */; };
+		279013C12AB9F8E5009092CC /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013C02AB9F8E5009092CC /* Router.swift */; };
+		279013C52AB9FA5F009092CC /* AsselderModelBuiler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013C42AB9FA5F009092CC /* AsselderModelBuiler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		279013B72AB9F22A009092CC /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		279013B82AB9F22A009092CC /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
 		279013BD2AB9F26D009092CC /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		279013C02AB9F8E5009092CC /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		279013C42AB9FA5F009092CC /* AsselderModelBuiler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsselderModelBuiler.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				279013B32AB9F1BB009092CC /* Application */,
+				279013C02AB9F8E5009092CC /* Router.swift */,
+				279013C42AB9FA5F009092CC /* AsselderModelBuiler.swift */,
 				279013B22AB9F1AC009092CC /* StartModule */,
 				279013A22AB9F1A0009092CC /* ViewController.swift */,
 				279013A42AB9F1A0009092CC /* Main.storyboard */,
@@ -190,8 +196,10 @@
 			files = (
 				279013BE2AB9F26D009092CC /* StartViewModel.swift in Sources */,
 				279013A32AB9F1A0009092CC /* ViewController.swift in Sources */,
+				279013C52AB9FA5F009092CC /* AsselderModelBuiler.swift in Sources */,
 				279013B92AB9F22A009092CC /* StartViewController.swift in Sources */,
 				2790139F2AB9F1A0009092CC /* AppDelegate.swift in Sources */,
+				279013C12AB9F8E5009092CC /* Router.swift in Sources */,
 				279013A12AB9F1A0009092CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,13 +8,19 @@
 import Foundation
 
 protocol StartViewModelProtocol {
-    init()
+    init(router: RouterProtocol)
     func showRestaurantModule()
     func showCustomerModule()
+    var router : RouterProtocol? { get set }
+
 }
 
 class StartViewModel: StartViewModelProtocol {
-    required init() {}
+    var router : RouterProtocol?
+
+    required init(router: RouterProtocol) {
+        self.router = router
+    }
     
     func showRestaurantModule() {
         print(#function)

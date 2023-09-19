@@ -20,15 +20,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.windowScene = windowScene
         
         let navigatorController = UINavigationController()
-        
-        var viewModel = StartViewModel()
-        let startViewController = StartViewController()
-        startViewController.viewModel = viewModel
+        let assemblyBuilder = AsselderModelBuiler()
+        let router = Router(navigationController: navigatorController, assemblyBuilder: assemblyBuilder)
+        router.showStartModule()
         
         self.window?.rootViewController = navigatorController
         self.window?.makeKeyAndVisible()
-        
-        navigatorController.pushViewController(startViewController, animated: true)
 
         
         
