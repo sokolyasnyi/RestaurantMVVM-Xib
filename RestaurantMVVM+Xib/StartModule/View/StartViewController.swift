@@ -13,8 +13,13 @@ class StartViewController: UIViewController {
     @IBOutlet weak var restaurantButton: UIButton!
     @IBOutlet weak var customerButton: UIButton!
     
+    var viewModel: StartViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupRestaurantButton()
+        setupCustomerButton()
 
     }
     
@@ -27,9 +32,11 @@ class StartViewController: UIViewController {
     }
     
     @IBAction func pressRestaurantButton(_ sender: Any) {
+        viewModel.showRestaurantModule()
     }
     
     @IBAction func pressCustomerButton(_ sender: Any) {
+        viewModel.showCustomerModule()
     }
     
 }

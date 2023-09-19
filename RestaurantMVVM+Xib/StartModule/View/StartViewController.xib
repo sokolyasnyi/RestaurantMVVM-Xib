@@ -22,17 +22,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You are a" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i7q-vf-sU2">
-                    <rect key="frame" x="24" y="302.66666666666669" width="163" height="48"/>
+                    <rect key="frame" x="24" y="289" width="163" height="48"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="40"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="uV5-6M-FND">
-                    <rect key="frame" x="32" y="382.66666666666669" width="329" height="86.666666666666686"/>
+                    <rect key="frame" x="32" y="369" width="329" height="114"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mdc-bj-wSl">
-                            <rect key="frame" x="0.0" y="0.0" width="329" height="34.333333333333336"/>
+                            <rect key="frame" x="0.0" y="0.0" width="329" height="48"/>
                             <color key="backgroundColor" red="0.39200000000000002" green="0.98799999999999999" blue="0.85099999999999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="Pik-XK-yWq"/>
+                            </constraints>
                             <color key="tintColor" systemColor="labelColor"/>
                             <state key="normal" title="Button"/>
                             <buttonConfiguration key="configuration" style="plain" title="Restaurant"/>
@@ -41,7 +44,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BE7-mx-qhp">
-                            <rect key="frame" x="0.0" y="52.333333333333314" width="329" height="34.333333333333343"/>
+                            <rect key="frame" x="0.0" y="66" width="329" height="48"/>
                             <color key="backgroundColor" red="0.39200000000000002" green="0.98799999999999999" blue="0.85099999999999998" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" systemColor="labelColor"/>
                             <state key="normal" title="Button"/>

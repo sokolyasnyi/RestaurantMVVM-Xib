@@ -6,3 +6,23 @@
 //
 
 import Foundation
+
+protocol StartViewModelProtocol {
+    init()
+    func showRestaurantModule()
+    func showCustomerModule()
+}
+
+class StartViewModel: StartViewModelProtocol {
+    required init() {}
+    
+    func showRestaurantModule() {
+        print(#function)
+    }
+    
+    func showCustomerModule() {
+        print(#function)
+    }
+    
+    
+}
