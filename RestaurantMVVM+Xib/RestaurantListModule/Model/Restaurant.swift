@@ -20,6 +20,6 @@ struct Restaurant {
     let name: String
     let desc: String
     let ratingCount: RatingsStars
-    let databaseCount: Int
+    let personCount: Int
     let isRecommended: Bool
 }

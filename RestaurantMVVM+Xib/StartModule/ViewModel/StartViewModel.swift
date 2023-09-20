@@ -24,6 +24,7 @@ class StartViewModel: StartViewModelProtocol {
     
     func showRestaurantModule() {
         print(#function)
+        router?.showRestaurantListModule()
     }
     
     func showCustomerModule() {

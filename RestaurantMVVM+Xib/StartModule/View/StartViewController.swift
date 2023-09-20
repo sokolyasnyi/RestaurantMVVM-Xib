@@ -13,7 +13,7 @@ class StartViewController: UIViewController {
     @IBOutlet weak var restaurantButton: UIButton!
     @IBOutlet weak var customerButton: UIButton!
     
-    var viewModel: StartViewModel!
+    var viewModel: StartViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()

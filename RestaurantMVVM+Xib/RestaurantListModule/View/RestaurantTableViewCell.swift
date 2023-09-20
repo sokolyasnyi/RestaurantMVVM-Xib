@@ -15,6 +15,7 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var recommendedContainerView: UIView!
     @IBOutlet weak var personCountLabel: UILabel!
+    
     static let reuseIdentifier = "RestaurantTableViewCell"
 
     override func awakeFromNib() {

@@ -25,6 +25,7 @@
 		279013D52AB9FCEE009092CC /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013D42AB9FCEE009092CC /* RestaurantList.swift */; };
 		279013D82ABB5C7A009092CC /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013D62ABB5C7A009092CC /* RestaurantTableViewCell.swift */; };
 		279013D92ABB5C7A009092CC /* RestaurantTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 279013D72ABB5C7A009092CC /* RestaurantTableViewCell.xib */; };
+		279013DB2ABB820A009092CC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013DA2ABB820A009092CC /* NetworkService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		279013D42AB9FCEE009092CC /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
 		279013D62ABB5C7A009092CC /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		279013D72ABB5C7A009092CC /* RestaurantTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RestaurantTableViewCell.xib; sourceTree = "<group>"; };
+		279013DA2ABB820A009092CC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 				279013C42AB9FA5F009092CC /* AsselderModelBuiler.swift */,
 				279013B22AB9F1AC009092CC /* StartModule */,
 				279013C62AB9FC35009092CC /* RestaurantListModule */,
+				279013DC2ABB8212009092CC /* ServiceLayer */,
 				279013A22AB9F1A0009092CC /* ViewController.swift */,
 				279013A42AB9F1A0009092CC /* Main.storyboard */,
 				279013A72AB9F1A1009092CC /* Assets.xcassets */,
@@ -175,6 +178,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		279013DC2ABB8212009092CC /* ServiceLayer */ = {
+			isa = PBXGroup;
+			children = (
+				279013DA2ABB820A009092CC /* NetworkService.swift */,
+			);
+			path = ServiceLayer;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,6 +271,7 @@
 				2790139F2AB9F1A0009092CC /* AppDelegate.swift in Sources */,
 				279013CB2AB9FCA2009092CC /* RestaurantListViewController.swift in Sources */,
 				279013C12AB9F8E5009092CC /* Router.swift in Sources */,
+				279013DB2ABB820A009092CC /* NetworkService.swift in Sources */,
 				279013A12AB9F1A0009092CC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

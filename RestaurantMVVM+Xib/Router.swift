@@ -31,7 +31,10 @@ class Router: RouterProtocol {
     }
     
     func showRestaurantListModule() {
-        print(#function)
+        if let navigationController = navigationController {
+            guard let restaurantListViewController = assemblyBuilder?.createRestaurantListModule(router: self) else { return }
+            navigationController.pushViewController(restaurantListViewController, animated: true)
+        }
     }
 }
 

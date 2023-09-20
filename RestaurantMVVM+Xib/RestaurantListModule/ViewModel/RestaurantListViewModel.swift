@@ -10,6 +10,7 @@ import Foundation
 protocol RestaurantListViewModelProtocol {
     init(router: RouterProtocol)
     var restaurantList: [Restaurant] {get set}
+    var stateChangeHandler: ((RestaurantListViewState) -> Void)? {get set}
     func fetchRestaurantList()
 
 }
@@ -51,6 +52,8 @@ class RestaurantListViewModel: RestaurantListViewModelProtocol {
     func fetchRestaurantList() {
         isLoading = true
         //TODO: - Get mock data
+        print(#function)
+        
     }
 
 }

@@ -12,19 +12,40 @@ class RestaurantListViewController: UIViewController {
     @IBOutlet weak var restaurantSearchBar: UISearchBar!
     @IBOutlet weak var restaurantTableView: UITableView!
     
-    
+    var viewModel: RestaurantListViewModelProtocol!
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
         
-        
+        // Подписка на изменения состояния ViewModel
+        viewModel.stateChangeHandler = { [weak self] state in
+            DispatchQueue.main.async {
+                self?.handleViewState(state)
+            }
+        }
     }
+    
+    private func handleViewState(_ state: RestaurantListViewState) {
+        
+        switch state {
+        case .loading:
+            print("Loading")
+        case .dataFetched:
+            restaurantTableView.reloadData()
+        case .error:
+            print("Error")
+        }
+    }
+
 }
 
 extension RestaurantListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
 
 extension RestaurantListViewController: UITableViewDataSource {
@@ -38,17 +59,14 @@ extension RestaurantListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let identifier = "1"
-        
-        var cell = restaurantTableView.dequeueReusableCell(withIdentifier: identifier)
+                
+        var cell = restaurantTableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.reuseIdentifier)
 
         if (cell == nil) {
-            cell = UITableViewCell(style: .default, reuseIdentifier: identifier)
+            cell = RestaurantTableViewCell(style: .default, reuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
         }
         
         return cell!
     }
-    
     
 }

@@ -9,7 +9,7 @@ import UIKit
 
 protocol AsselderBuilderProtocol {
     func createStartModule(router: RouterProtocol) -> UIViewController
-//    func createRestaurantListModule(router: RouterProtocol) -> UIViewController
+    func createRestaurantListModule(router: RouterProtocol) -> UIViewController
 }
 
 class AsselderModelBuiler: AsselderBuilderProtocol {
@@ -19,7 +19,10 @@ class AsselderModelBuiler: AsselderBuilderProtocol {
         view.viewModel = viewModel
         return view
     }
-//    func createRestaurantListModule(router: RouterProtocol) -> UIViewController {
-//
-//    }
+    func createRestaurantListModule(router: RouterProtocol) -> UIViewController {
+        let view = RestaurantListViewController()
+        let viewModel = RestaurantListViewModel(router: router)
+        view.viewModel = viewModel
+        return view
+    }
 }
