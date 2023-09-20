@@ -6,3 +6,20 @@
 //
 
 import Foundation
+
+enum RatingsStars {
+    case one
+    case two
+    case three
+    case four
+    case five
+}
+
+struct Restaurant {
+    let id: String
+    let name: String
+    let desc: String
+    let ratingCount: RatingsStars
+    let databaseCount: Int
+    let isRecommended: Bool
+}

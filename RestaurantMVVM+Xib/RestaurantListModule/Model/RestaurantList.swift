@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+struct RestaurantList {
+    let restaurants: Array<Restaurant>
+}

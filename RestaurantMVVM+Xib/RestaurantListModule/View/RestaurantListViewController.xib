@@ -20,16 +20,15 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="TqS-Iv-bD4">
+                <searchBar contentMode="redraw" placeholder="Search for Shops and Restaurants " translatesAutoresizingMaskIntoConstraints="NO" id="TqS-Iv-bD4">
                     <rect key="frame" x="0.0" y="68" width="393" height="56"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
                         <outlet property="delegate" destination="-1" id="bMT-GW-5X1"/>
                     </connections>
                 </searchBar>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-zd-DX0">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-zd-DX0">
                     <rect key="frame" x="0.0" y="124" width="393" height="728"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -37,7 +36,11 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="TqS-Iv-bD4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Wt-LE-82v"/>
+                <constraint firstItem="aAq-zd-DX0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8pF-go-4EZ"/>
+                <constraint firstAttribute="bottom" secondItem="aAq-zd-DX0" secondAttribute="bottom" id="OZF-Gu-4hl"/>
                 <constraint firstItem="TqS-Iv-bD4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="Xdn-7h-eV4"/>
+                <constraint firstItem="aAq-zd-DX0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Y02-gr-nJO"/>
+                <constraint firstItem="aAq-zd-DX0" firstAttribute="top" secondItem="TqS-Iv-bD4" secondAttribute="bottom" id="o5c-c4-nOX"/>
                 <constraint firstItem="TqS-Iv-bD4" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vjc-0Z-LuE"/>
             </constraints>
             <point key="canvasLocation" x="139.69465648854961" y="19.718309859154932"/>
