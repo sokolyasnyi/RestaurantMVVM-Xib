@@ -21,7 +21,8 @@ class AsselderModelBuiler: AsselderBuilderProtocol {
     }
     func createRestaurantListModule(router: RouterProtocol) -> UIViewController {
         let view = RestaurantListViewController()
-        let viewModel = RestaurantListViewModel(router: router)
+        let networkService = NetworkService()
+        let viewModel = RestaurantListViewModel(router: router, networkService: networkService)
         view.viewModel = viewModel
         return view
     }

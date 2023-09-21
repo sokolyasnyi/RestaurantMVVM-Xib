@@ -55,16 +55,22 @@ extension RestaurantListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return viewModel.restaurantList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
-        var cell = restaurantTableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.reuseIdentifier)
+        var cell = restaurantTableView.dequeueReusableCell(withIdentifier: RestaurantTableViewCell.reuseIdentifier) as? RestaurantTableViewCell
 
         if (cell == nil) {
             cell = RestaurantTableViewCell(style: .default, reuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
         }
+        
+        let restaurants = viewModel.restaurantList
+        let restaurnat = restaurants[indexPath.row]
+        print(restaurnat)
+        cell?.nameLabel.text = restaurnat.name ?? "no name"
+        cell?.personCountLabel.text = restaurnat.priceLevel ?? ""
         
         return cell!
     }

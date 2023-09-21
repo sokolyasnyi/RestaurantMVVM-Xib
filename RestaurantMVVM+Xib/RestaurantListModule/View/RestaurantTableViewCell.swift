@@ -9,7 +9,6 @@ import UIKit
 
 class RestaurantTableViewCell: UITableViewCell {
     
-    
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
@@ -17,21 +16,35 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet weak var personCountLabel: UILabel!
     
     static let reuseIdentifier = "RestaurantTableViewCell"
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-        print(#function)
-        setupContainerView()
-        setupRecommendedView()
+    
+    var view: UIView!
+    let nibName = "RestaurantTableViewCell"
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupView()
+    }
+    
+    func loadFromNib() -> UIView {
+        let bundle = Bundle(for: type(of: self))
+        let nib = UINib(nibName: nibName, bundle: bundle)
+        let view = nib.instantiate(withOwner: self, options: nil).first as! UIView
+        return view
+    }
+    
+    func setupView() {
+        
+        view = loadFromNib()
+        view.frame = bounds
+        
+        addSubview(view)
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-
-    }
     
     func setupContainerView() {
         containerView.layer.cornerRadius = 10
