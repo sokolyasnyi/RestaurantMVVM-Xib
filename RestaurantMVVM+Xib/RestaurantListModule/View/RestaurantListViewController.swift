@@ -19,6 +19,9 @@ class RestaurantListViewController: UIViewController {
 
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
+//        restaurantTableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
+        restaurantTableView.register(UINib(nibName: RestaurantTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
+
         
         // Подписка на изменения состояния ViewModel
         viewModel.stateChangeHandler = { [weak self] state in
@@ -44,7 +47,7 @@ class RestaurantListViewController: UIViewController {
 
 extension RestaurantListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 150
     }
 }
 
@@ -71,6 +74,10 @@ extension RestaurantListViewController: UITableViewDataSource {
         print(restaurnat)
         cell?.nameLabel.text = restaurnat.name ?? "no name"
         cell?.personCountLabel.text = restaurnat.priceLevel ?? ""
+        
+        if !restaurnat.isRecommended {
+            cell?.recommendedContainerView.isHidden
+        }
         
         return cell!
     }
