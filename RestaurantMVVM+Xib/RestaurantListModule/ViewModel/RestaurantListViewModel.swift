@@ -10,8 +10,10 @@ import Foundation
 protocol RestaurantListViewModelProtocol {
     init(router: RouterProtocol, networkService: NetworkServiceProtocol)
     var restaurantList: [Restaurant] {get set}
+    var filtredRestaurantList: [Restaurant]? {get set}
     var stateChangeHandler: ((RestaurantListViewState) -> Void)? {get set}
     func fetchRestaurantList()
+    func filterContentForSearchText(_ searchText: String)
 
 }
 
@@ -23,6 +25,7 @@ enum RestaurantListViewState {
 
 class RestaurantListViewModel: RestaurantListViewModelProtocol {
     
+    
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
     var stateChangeHandler: ((RestaurantListViewState) -> Void)?
@@ -32,6 +35,7 @@ class RestaurantListViewModel: RestaurantListViewModelProtocol {
             stateChangeHandler?(.dataFetched)
         }
     }
+    var filtredRestaurantList: [Restaurant]?
     
     var error: Error? {
         didSet {
@@ -76,5 +80,11 @@ class RestaurantListViewModel: RestaurantListViewModelProtocol {
         })
 
     }
-
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filtredRestaurantList = restaurantList.filter({ (restaurant: Restaurant) -> Bool in
+            return restaurant.name?.lowercased().contains(searchText.lowercased()) ?? false
+        })
+    }
+    
 }

@@ -12,7 +12,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantListViewController" customModule="RestaurantMVVM_Xib" customModuleProvider="target">
             <connections>
                 <outlet property="loadingActivityIndicator" destination="8xI-Nw-Lk7" id="u3d-ot-mLi"/>
-                <outlet property="restaurantSearchBar" destination="TqS-Iv-bD4" id="SEn-gz-Tos"/>
                 <outlet property="restaurantTableView" destination="aAq-zd-DX0" id="HfL-Qi-Rla"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -22,33 +21,23 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" placeholder="Search for Shops and Restaurants " translatesAutoresizingMaskIntoConstraints="NO" id="TqS-Iv-bD4">
-                    <rect key="frame" x="0.0" y="68" width="393" height="56"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="-1" id="bMT-GW-5X1"/>
-                    </connections>
-                </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="aAq-zd-DX0">
-                    <rect key="frame" x="0.0" y="124" width="393" height="728"/>
+                    <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-Nw-Lk7">
-                    <rect key="frame" x="178" y="469.66666666666669" width="37" height="37"/>
+                    <rect key="frame" x="178" y="437" width="37" height="37"/>
                 </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="8xI-Nw-Lk7" firstAttribute="centerY" secondItem="aAq-zd-DX0" secondAttribute="centerY" id="4RJ-FF-O7E"/>
-                <constraint firstItem="TqS-Iv-bD4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Wt-LE-82v"/>
                 <constraint firstItem="aAq-zd-DX0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8pF-go-4EZ"/>
+                <constraint firstItem="aAq-zd-DX0" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="KDz-pQ-cOc"/>
                 <constraint firstItem="8xI-Nw-Lk7" firstAttribute="centerX" secondItem="aAq-zd-DX0" secondAttribute="centerX" id="LZ6-OC-fpd"/>
                 <constraint firstAttribute="bottom" secondItem="aAq-zd-DX0" secondAttribute="bottom" id="OZF-Gu-4hl"/>
-                <constraint firstItem="TqS-Iv-bD4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="Xdn-7h-eV4"/>
                 <constraint firstItem="aAq-zd-DX0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Y02-gr-nJO"/>
-                <constraint firstItem="aAq-zd-DX0" firstAttribute="top" secondItem="TqS-Iv-bD4" secondAttribute="bottom" id="o5c-c4-nOX"/>
-                <constraint firstItem="TqS-Iv-bD4" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="vjc-0Z-LuE"/>
             </constraints>
             <point key="canvasLocation" x="139.69465648854961" y="19.718309859154932"/>
         </view>

@@ -9,13 +9,28 @@ import UIKit
 
 class RestaurantListViewController: UIViewController {
 
-    @IBOutlet weak var restaurantSearchBar: UISearchBar!
+    private let searchController = UISearchController(searchResultsController: nil)
     @IBOutlet weak var restaurantTableView: UITableView!
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     var viewModel: RestaurantListViewModelProtocol!
-
+    
+    private var isSearchBarEmpty: Bool {
+        guard let text = searchController.searchBar.text else {return false}
+        return text.isEmpty
+    }
+    private var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for Shops and Restaurants"
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        
 
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
@@ -61,7 +76,11 @@ extension RestaurantListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.restaurantList.count
+        if isFiltering {
+            return viewModel.filtredRestaurantList?.count ?? 0
+        } else {
+            return viewModel.restaurantList.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -72,17 +91,32 @@ extension RestaurantListViewController: UITableViewDataSource {
             cell = RestaurantTableViewCell(style: .default, reuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
         }
         
-        let restaurants = viewModel.restaurantList
+        var restaurants: [Restaurant]
+        if isFiltering {
+            restaurants = viewModel.filtredRestaurantList ?? viewModel.restaurantList
+        } else {
+            restaurants = viewModel.restaurantList
+        }
+        
         let restaurnat = restaurants[indexPath.row]
         print(restaurnat)
         cell?.nameLabel.text = restaurnat.name ?? "no name"
         cell?.personCountLabel.text = restaurnat.priceLevel ?? ""
         
         if !restaurnat.isRecommended {
-            cell?.recommendedContainerView.isHidden
+            cell?.recommendedContainerView.isHidden = true
         }
         
         return cell!
     }
     
+}
+
+extension RestaurantListViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        if let searchText = searchController.searchBar.text {
+            viewModel.filterContentForSearchText(searchText)
+            restaurantTableView.reloadData()
+        }
+    }
 }
