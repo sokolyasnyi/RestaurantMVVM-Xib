@@ -22,20 +22,28 @@ class RestaurantListViewController: UIViewController {
         return searchController.isActive && !isSearchBarEmpty
     }
         
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Shops and Restaurants"
         navigationItem.searchController = searchController
         definesPresentationContext = true
+        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.392, green: 0.988, blue: 0.851, alpha: 1)
+        navigationController?.navigationBar.tintColor = .black
+        changeStatusBarColor()
+
+        
         
 
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
         restaurantTableView.register(UINib(nibName: RestaurantTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
 
+        
         loadingActivityIndicator.hidesWhenStopped = true
 
         
@@ -45,6 +53,26 @@ class RestaurantListViewController: UIViewController {
                 self?.handleViewState(state)
             }
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.navigationBar.backgroundColor = .white
+    }
+    
+    func changeStatusBarColor() {
+        
+        let statusBarFrame: CGRect
+        if #available(iOS 13.0, *) {
+            statusBarFrame = self.view.window?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
+        } else {
+            statusBarFrame = UIApplication.shared.statusBarFrame
+        }
+        
+        let statusBarView = UIView(frame: statusBarFrame)
+        let statusBarColor = UIColor(red: 0.392, green: 0.988, blue: 0.851, alpha: 1)
+        statusBarView.backgroundColor = statusBarColor
+        view.addSubview(statusBarView)
     }
     
     private func handleViewState(_ state: RestaurantListViewState) {
