@@ -11,7 +11,7 @@ class RestaurantListViewController: UIViewController {
 
     @IBOutlet weak var restaurantSearchBar: UISearchBar!
     @IBOutlet weak var restaurantTableView: UITableView!
-    
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     var viewModel: RestaurantListViewModelProtocol!
 
     override func viewDidLoad() {
@@ -19,8 +19,9 @@ class RestaurantListViewController: UIViewController {
 
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
-//        restaurantTableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
         restaurantTableView.register(UINib(nibName: RestaurantTableViewCell.reuseIdentifier, bundle: nil), forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
+
+        loadingActivityIndicator.hidesWhenStopped = true
 
         
         // Подписка на изменения состояния ViewModel
@@ -36,7 +37,9 @@ class RestaurantListViewController: UIViewController {
         switch state {
         case .loading:
             print("Loading")
+            loadingActivityIndicator.startAnimating()
         case .dataFetched:
+            loadingActivityIndicator.stopAnimating()
             restaurantTableView.reloadData()
         case .error:
             print("Error")

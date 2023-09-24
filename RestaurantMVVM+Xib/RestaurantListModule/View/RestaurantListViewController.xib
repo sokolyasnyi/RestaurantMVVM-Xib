@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -10,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RestaurantListViewController" customModule="RestaurantMVVM_Xib" customModuleProvider="target">
             <connections>
+                <outlet property="loadingActivityIndicator" destination="8xI-Nw-Lk7" id="u3d-ot-mLi"/>
                 <outlet property="restaurantSearchBar" destination="TqS-Iv-bD4" id="SEn-gz-Tos"/>
                 <outlet property="restaurantTableView" destination="aAq-zd-DX0" id="HfL-Qi-Rla"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,12 +33,17 @@
                     <rect key="frame" x="0.0" y="124" width="393" height="728"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="8xI-Nw-Lk7">
+                    <rect key="frame" x="178" y="469.66666666666669" width="37" height="37"/>
+                </activityIndicatorView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="8xI-Nw-Lk7" firstAttribute="centerY" secondItem="aAq-zd-DX0" secondAttribute="centerY" id="4RJ-FF-O7E"/>
                 <constraint firstItem="TqS-Iv-bD4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="7Wt-LE-82v"/>
                 <constraint firstItem="aAq-zd-DX0" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="8pF-go-4EZ"/>
+                <constraint firstItem="8xI-Nw-Lk7" firstAttribute="centerX" secondItem="aAq-zd-DX0" secondAttribute="centerX" id="LZ6-OC-fpd"/>
                 <constraint firstAttribute="bottom" secondItem="aAq-zd-DX0" secondAttribute="bottom" id="OZF-Gu-4hl"/>
                 <constraint firstItem="TqS-Iv-bD4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="9" id="Xdn-7h-eV4"/>
                 <constraint firstItem="aAq-zd-DX0" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Y02-gr-nJO"/>
