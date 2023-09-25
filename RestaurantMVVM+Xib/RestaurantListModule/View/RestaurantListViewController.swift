@@ -127,13 +127,8 @@ extension RestaurantListViewController: UITableViewDataSource {
         }
         
         let restaurnat = restaurants[indexPath.row]
-        print(restaurnat)
-        cell?.nameLabel.text = restaurnat.name ?? "no name"
-        cell?.personCountLabel.text = restaurnat.priceLevel ?? ""
+        cell?.configure(restaurnat)
         
-        if !restaurnat.isRecommended {
-            cell?.recommendedContainerView.isHidden = true
-        }
         
         return cell!
     }
