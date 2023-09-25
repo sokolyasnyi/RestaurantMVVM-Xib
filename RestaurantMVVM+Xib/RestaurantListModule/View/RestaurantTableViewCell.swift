@@ -39,4 +39,14 @@ class RestaurantTableViewCell: UITableViewCell {
     func setupRecommendedView() {
         recommendedContainerView.layer.cornerRadius = 4
     }
+    
+    func configure(_ restaurant: Restaurant) {
+        self.nameLabel.text = restaurant.name ?? "no name"
+        self.personCountLabel.text = restaurant.priceLevel ?? ""
+        
+        if !restaurant.isRecommended {
+            self.recommendedContainerView.isHidden = true
+        }
+        
+    }
 }
