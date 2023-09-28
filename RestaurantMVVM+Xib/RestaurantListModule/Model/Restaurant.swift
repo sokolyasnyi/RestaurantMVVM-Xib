@@ -18,8 +18,8 @@ enum RatingsStars {
 struct Restaurant {
     let id: String?
     let name: String?
-    var ratingCount: RatingsStars?
-    let priceLevel: String?
+    var ratingCount: RatingsStars? = .one
+    var priceLevel: String?
     var isRecommended: Bool {
         if self.ratingCount == .four || self.ratingCount == .five {
             return true
@@ -52,19 +52,20 @@ struct Restaurant {
         }
     }
     
-    init(data: Rest) {
-        self.id = data.locationId
-        self.name = data.name
-        self.priceLevel = data.priceLevel
+    init(data: EstablishmentCollection) {
+        self.id = "1"
+        self.name = data.businessName
+        self.priceLevel = "$$-$$$"
         
-        let ratingCount = data.rating
+        
+        let ratingCount = data.ratingValue
         
         switch ratingCount {
-        case "1.0": self.ratingCount = .one
-        case "2.0": self.ratingCount = .two
-        case "3.0": self.ratingCount = .three
-        case "4.0": self.ratingCount = .four
-        case "5.0": self.ratingCount = .five
+        case "1": self.ratingCount = .one
+        case "2": self.ratingCount = .two
+        case "3": self.ratingCount = .three
+        case "4": self.ratingCount = .four
+        case "5": self.ratingCount = .five
         default:print("rating not found")
         }
     }
