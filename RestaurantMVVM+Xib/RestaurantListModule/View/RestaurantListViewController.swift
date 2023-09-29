@@ -30,11 +30,12 @@ class RestaurantListViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Shops and Restaurants"
+//        searchController.delegate = self
+        searchController.automaticallyShowsSearchResultsController = true
+        
         navigationItem.searchController = searchController
         definesPresentationContext = true
-        navigationController?.navigationBar.backgroundColor = UIColor(red: 0.392, green: 0.988, blue: 0.851, alpha: 1)
         navigationController?.navigationBar.tintColor = .black
-        changeStatusBarColor()
 
         
         
@@ -55,24 +56,14 @@ class RestaurantListViewController: UIViewController {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        searchController.isActive = true
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.navigationBar.backgroundColor = .white
-    }
-    
-    func changeStatusBarColor() {
-        
-        let statusBarFrame: CGRect
-        if #available(iOS 13.0, *) {
-            statusBarFrame = self.view.window?.windowScene?.statusBarManager?.statusBarFrame ?? .zero
-        } else {
-            statusBarFrame = UIApplication.shared.statusBarFrame
-        }
-        
-        let statusBarView = UIView(frame: statusBarFrame)
-        let statusBarColor = UIColor(red: 0.392, green: 0.988, blue: 0.851, alpha: 1)
-        statusBarView.backgroundColor = statusBarColor
-        view.addSubview(statusBarView)
     }
     
     private func handleViewState(_ state: RestaurantListViewState) {
@@ -143,3 +134,11 @@ extension RestaurantListViewController: UISearchResultsUpdating {
         }
     }
 }
+
+//extension RestaurantListViewController: UISearchControllerDelegate {
+//    func didPresentSearchController(_ searchController: UISearchController) {
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [weak self] in
+//            self?.searchController.searchBar.becomeFirstResponder()
+//        })
+//    }
+//}
