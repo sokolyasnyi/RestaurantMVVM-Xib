@@ -42,7 +42,7 @@ class RestaurantTableViewCell: UITableViewCell {
     
     func configure(_ restaurant: Restaurant) {
         self.nameLabel.text = restaurant.name ?? "no name"
-        self.personCountLabel.text = restaurant.priceLevel ?? ""
+        self.personCountLabel.text = restaurant.address ?? "no name"
         
         if !restaurant.isRecommended {
             self.recommendedContainerView.isHidden = true

@@ -36,17 +36,15 @@ class NetworkService: NetworkServiceProtocol {
                 } else {
                     if let resp = response as? HTTPURLResponse, resp.statusCode == 200 {
                         if let responseData = data {
-                            let root = try? JSONDecoder().decode(Root.self, from: responseData)
-                            if let establishmentCollection = root?.FHRSEstablishment.establishmentCollection {
-                                let restaurants = self.parseRestaurnatDataToArray(data:establishmentCollection)
-                                print(restaurants)
+                            let dict = try? JSONSerialization.jsonObject(with: responseData)
+                            as? [String: Any]
+                            if let dict = dict {
+                                let fHRSEstablishment = dict["FHRSEstablishment"] as? [String: Any]
+                                let estabilishmentCollection = fHRSEstablishment?["EstablishmentCollection"] as? [[String: Any]]
+                                let restaurants = self.parseRestaurnatDataToArray(data: estabilishmentCollection)
+                                completion(.success(restaurants))
                             }
                         }
-                        
-//                        let responseData = try? JSONDecoder().decode(Root.self, from: data)
-//                        if let responseData = responseData {
-//                            completion(.success(restaurants))
-//                        }
                     } else {
                         let temp = response as? HTTPURLResponse
                         print(temp?.statusCode as Any)
@@ -62,12 +60,22 @@ class NetworkService: NetworkServiceProtocol {
 
 //MARK: - Parsing data
 extension NetworkService {
-    private func parseRestaurnatDataToArray(data: Array<EstablishmentCollection>) -> Array<Restaurant> {
+    private func parseRestaurnatDataToArray(data: [[String: Any]]?) -> Array<Restaurant> {
         
-        let array = data.map { doc -> Restaurant in
+        guard let data = data else { return [] }
+        
+        let array = data.filter { doc in
+            guard let businessType = doc["BusinessType"] as? String else { return false}
+            if businessType == "Restaurant/Cafe/Canteen" {
+                return true
+            } else {
+                return false
+            }
+        }.map { doc -> Restaurant in
             let restaurant = Restaurant(data: doc)
             return restaurant
         }
         return array
+        
     }
 }

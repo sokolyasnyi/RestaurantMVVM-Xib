@@ -19,7 +19,7 @@ struct Restaurant {
     let id: String?
     let name: String?
     var ratingCount: RatingsStars? = .one
-    var priceLevel: String?
+    var address: String?
     var isRecommended: Bool {
         if self.ratingCount == .four || self.ratingCount == .five {
             return true
@@ -28,19 +28,19 @@ struct Restaurant {
         }
     }
     
-    init(id: String, name: String, ratingCount: RatingsStars, priceLevel: String, isRecommended: Bool) {
+    init(id: String, name: String, ratingCount: RatingsStars, address: String, isRecommended: Bool) {
         self.id = id
         self.name = name
         self.ratingCount = ratingCount
-        self.priceLevel = priceLevel
+        self.address = address
     }
     
     init(data: Dictionary<String, Any>) {
-        self.id = data["id"] as? String
-        self.name = data["name"] as? String
-        self.priceLevel = data["priceLevel"] as? String
+        self.id = String("\(data["FHRSID"] as? Int)")
+        self.name = data["BusinessName"] as? String
+        self.address = data["AddressLine1"] as? String
         
-        if let ratingCount = data["ratingCount"] as? String {
+        if let ratingCount = data["RatingValue"] as? String {
             switch ratingCount {
                 case "1": self.ratingCount = .one
                 case "2": self.ratingCount = .two
@@ -51,23 +51,5 @@ struct Restaurant {
             }
         }
     }
-    
-    init(data: EstablishmentCollection) {
-        self.id = "1"
-        self.name = data.businessName
-        self.priceLevel = "$$-$$$"
         
-        
-        let ratingCount = data.ratingValue
-        
-        switch ratingCount {
-        case "1": self.ratingCount = .one
-        case "2": self.ratingCount = .two
-        case "3": self.ratingCount = .three
-        case "4": self.ratingCount = .four
-        case "5": self.ratingCount = .five
-        default:print("rating not found")
-        }
-    }
-    
 }
