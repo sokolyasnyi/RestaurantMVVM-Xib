@@ -170,9 +170,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addressLabel" destination="G7B-0p-VTZ" id="rta-1T-vdq"/>
                 <outlet property="containerView" destination="clP-MP-dgY" id="tTi-sY-EsK"/>
                 <outlet property="nameLabel" destination="dIu-My-YRp" id="piG-Ur-mzI"/>
-                <outlet property="personCountLabel" destination="G7B-0p-VTZ" id="K6b-Kd-rzP"/>
                 <outlet property="recommendedContainerView" destination="fZX-qe-fq2" id="ahu-wE-krz"/>
                 <outlet property="restaurantImageView" destination="EF1-xi-B8m" id="UeD-Jx-6Ax"/>
             </connections>

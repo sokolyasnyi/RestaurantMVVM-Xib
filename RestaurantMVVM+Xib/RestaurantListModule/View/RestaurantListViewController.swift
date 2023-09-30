@@ -30,7 +30,6 @@ class RestaurantListViewController: UIViewController {
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Shops and Restaurants"
-//        searchController.delegate = self
         searchController.automaticallyShowsSearchResultsController = true
         
         navigationItem.searchController = searchController
@@ -58,7 +57,6 @@ class RestaurantListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        searchController.isActive = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -77,6 +75,7 @@ class RestaurantListViewController: UIViewController {
             restaurantTableView.reloadData()
         case .error:
             print("Error")
+            loadingActivityIndicator.stopAnimating()
         }
     }
 
@@ -135,10 +134,3 @@ extension RestaurantListViewController: UISearchResultsUpdating {
     }
 }
 
-//extension RestaurantListViewController: UISearchControllerDelegate {
-//    func didPresentSearchController(_ searchController: UISearchController) {
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: { [weak self] in
-//            self?.searchController.searchBar.becomeFirstResponder()
-//        })
-//    }
-//}
