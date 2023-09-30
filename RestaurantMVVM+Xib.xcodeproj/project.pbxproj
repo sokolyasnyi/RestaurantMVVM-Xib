@@ -104,7 +104,6 @@
 			children = (
 				279013B42AB9F1DE009092CC /* View */,
 				279013B52AB9F1E7009092CC /* ViewModel */,
-				279013B62AB9F1F7009092CC /* Model */,
 			);
 			path = StartModule;
 			sourceTree = "<group>";
@@ -133,13 +132,6 @@
 				279013BD2AB9F26D009092CC /* StartViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		279013B62AB9F1F7009092CC /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		279013C62AB9FC35009092CC /* RestaurantListModule */ = {

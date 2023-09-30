@@ -28,23 +28,23 @@
                                     <constraint firstAttribute="width" secondItem="EF1-xi-B8m" secondAttribute="height" id="5xv-jE-U6B"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BMI-xU-pxU">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="BMI-xU-pxU">
                                 <rect key="frame" x="160" y="16" width="166" height="124"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="To7-4u-HkU">
-                                        <rect key="frame" x="0.0" y="0.0" width="166" height="56"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="166" height="47"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ABC Restaurant" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIu-My-YRp">
-                                                <rect key="frame" x="0.0" y="0.0" width="145.66666666666666" height="37"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="145.66666666666666" height="28"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" priority="999" constant="28" id="ftz-yt-DFZ"/>
+                                                    <constraint firstAttribute="height" constant="28" id="ftz-yt-DFZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="V28-Ra-m8H">
-                                                <rect key="frame" x="0.0" y="41" width="75" height="15"/>
+                                                <rect key="frame" x="0.0" y="32" width="75" height="15"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="iiS-dW-3RX">
                                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="15" height="14.666666666666666"/>
@@ -98,13 +98,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KH9-Y4-Lt7">
-                                        <rect key="frame" x="0.0" y="68" width="166" height="56"/>
+                                        <rect key="frame" x="0.0" y="59" width="166" height="65"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fZX-qe-fq2">
-                                                <rect key="frame" x="0.0" y="0.0" width="120" height="21"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="166" height="30"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recommended" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KWr-PS-UU8">
-                                                        <rect key="frame" x="4" y="0.0" width="112" height="21"/>
+                                                        <rect key="frame" x="4" y="0.0" width="158" height="30"/>
                                                         <color key="backgroundColor" red="0.72999999999999998" green="0.75" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                         <nil key="textColor"/>
@@ -121,7 +121,7 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gS3-5t-J7b">
-                                                <rect key="frame" x="0.0" y="31" width="53.333333333333336" height="25"/>
+                                                <rect key="frame" x="0.0" y="40" width="53.333333333333336" height="25"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="P1M-Jw-DkZ">
                                                         <rect key="frame" x="0.0" y="-2.3333333333333357" width="25" height="30.333333333333336"/>
@@ -130,7 +130,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="P1M-Jw-DkZ" secondAttribute="height" id="wdh-u7-DXV"/>
                                                         </constraints>
-                                                        <imageReference key="image" image="bitcoinsign.circle.fill" catalog="system" symbolScale="large"/>
+                                                        <imageReference key="image" image="mappin.and.ellipse.circle.fill" catalog="system" symbolScale="large" renderingMode="original"/>
                                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G7B-0p-VTZ">
@@ -170,9 +170,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addressLabel" destination="G7B-0p-VTZ" id="rta-1T-vdq"/>
                 <outlet property="containerView" destination="clP-MP-dgY" id="tTi-sY-EsK"/>
                 <outlet property="nameLabel" destination="dIu-My-YRp" id="piG-Ur-mzI"/>
-                <outlet property="personCountLabel" destination="G7B-0p-VTZ" id="K6b-Kd-rzP"/>
                 <outlet property="recommendedContainerView" destination="fZX-qe-fq2" id="ahu-wE-krz"/>
                 <outlet property="restaurantImageView" destination="EF1-xi-B8m" id="UeD-Jx-6Ax"/>
             </connections>
@@ -180,7 +180,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bitcoinsign.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="mappin.and.ellipse.circle.fill" catalog="system" width="128" height="123"/>
         <image name="restaurant" width="100" height="100"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="opaqueSeparatorColor">

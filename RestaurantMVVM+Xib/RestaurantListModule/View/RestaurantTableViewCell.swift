@@ -14,7 +14,7 @@ class RestaurantTableViewCell: UITableViewCell {
     @IBOutlet weak var restaurantImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var recommendedContainerView: UIView!
-    @IBOutlet weak var personCountLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     static let reuseIdentifier = "RestaurantTableViewCell"
 
     override func awakeFromNib() {
@@ -25,12 +25,6 @@ class RestaurantTableViewCell: UITableViewCell {
         setupRecommendedView()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        // Configure the view for the selected state
-
-    }
-    
     func setupContainerView() {
         containerView.layer.cornerRadius = 10
         
@@ -42,11 +36,7 @@ class RestaurantTableViewCell: UITableViewCell {
     
     func configure(_ restaurant: Restaurant) {
         self.nameLabel.text = restaurant.name ?? "no name"
-        self.personCountLabel.text = restaurant.priceLevel ?? ""
-        
-        if !restaurant.isRecommended {
-            self.recommendedContainerView.isHidden = true
-        }
+        self.addressLabel.text = restaurant.address ?? "no name"
         
     }
 }

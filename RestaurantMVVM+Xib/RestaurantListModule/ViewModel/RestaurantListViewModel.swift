@@ -57,27 +57,25 @@ class RestaurantListViewModel: RestaurantListViewModelProtocol {
 
     func fetchRestaurantList() {
         isLoading = true
-        //TODO: - Get mock data
-        
-        print(#function)
-        networkService?.searchRestaurants(completion: { [weak self] result in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                self.isLoading = false
-                switch result {
-                case .success(let restaurants):
-                    if let restaurants = restaurants {
-                        self.restaurantList = restaurants
-                        print("Count restaurant \(self.restaurantList.count)")
+        DispatchQueue.global(qos: .default).async {
+            self.networkService?.searchRestaurants(completion: { [weak self] result in
+                guard let self = self else { return }
+                
+                DispatchQueue.main.async {
+                    self.isLoading = false
+                    switch result {
+                    case .success(let restaurants):
+                        if let restaurants = restaurants {
+                            self.restaurantList = restaurants
+                            print("Count restaurant \(self.restaurantList.count)")
+                        }
+                    case .failure(let error):
+                        self.error = error
                     }
-                case .failure(let error):
-                    self.error = error
-
                 }
-            }
-            
-        })
+            })
+        }
+        print(#function)
 
     }
     
