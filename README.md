@@ -11,4 +11,5 @@
 
 ## Скриншоты
 <img src = "https://github.com/sokolyasnyi/RestaurantMVVM-Xib/assets/48655530/68d54924-a045-4c9d-85e5-bf51526db18c" width="200" height="400">
-<img src = "https://github.com/sokolyasnyi/RestaurantMVVM-Xib/assets/48655530/07e27c86-8485-4bfc-af86-d770d9c61051" widht="200" height="400">
+<img src = "https://github.com/sokolyasnyi/RestaurantMVVM-Xib/assets/48655530/2af0d50a-b27c-43b5-bed5-d5d869d1d751" widht="200" height="400">
+
