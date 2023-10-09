@@ -22,6 +22,8 @@ struct Resources {
         static let lightGray = UIColor(red: 243.0/255.0, green: 242.0/255.0, blue: 242.0/255.0, alpha: 1)
         static let darkGray = UIColor(red: 186.0/255.0, green: 192.0/255.0, blue: 203.0/255.0, alpha: 1)
         static let yellow = UIColor(red: 255.0/255.0, green: 182.0/255.0, blue: 29.0/255.0, alpha: 1)
+        static let black = UIColor.black
+
 
     }
     enum Asset {

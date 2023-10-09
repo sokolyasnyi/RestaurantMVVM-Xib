@@ -41,6 +41,9 @@ class RestaurantListViewController: UIViewController {
         
         view.backgroundColor = .white
         
+        view.addSubview(restaurantTableView)
+        view.addSubview(loadingActivityIndicator)
+        
         searchController.searchResultsUpdater = self
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Search for Shops and Restaurants"
