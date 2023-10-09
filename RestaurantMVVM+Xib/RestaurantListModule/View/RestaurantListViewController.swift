@@ -55,7 +55,9 @@ class RestaurantListViewController: UIViewController {
         restaurantTableView.delegate = self
         restaurantTableView.dataSource = self
         restaurantTableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
-
+        
+        setupConstraints()
+        
         // Подписка на изменения состояния ViewModel
         viewModel.stateChangeHandler = { [weak self] state in
             DispatchQueue.main.async {
@@ -86,6 +88,16 @@ class RestaurantListViewController: UIViewController {
             print("Error")
             loadingActivityIndicator.stopAnimating()
         }
+    }
+    
+    func setupConstraints() {
+        restaurantTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+        restaurantTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
+        restaurantTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true
+        restaurantTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+        
+        loadingActivityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        loadingActivityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 
 }
