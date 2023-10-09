@@ -26,5 +26,7 @@ struct Resources {
     }
     enum Asset {
         static let restaurantImage = UIImage(named: "restaurant")
+        static let starImage = UIImage(systemName: "star.fill")
+        static let pinImage = UIImage(systemName: "mappin.and.ellipse.circle.fill")
     }
 }

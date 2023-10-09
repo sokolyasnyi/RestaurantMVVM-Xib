@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		278380B92AD4794B0092F1D2 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278380B82AD4794B0092F1D2 /* Resources.swift */; };
+		278380BB2AD481300092F1D2 /* StarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278380BA2AD481300092F1D2 /* StarsView.swift */; };
 		2790139F2AB9F1A0009092CC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2790139E2AB9F1A0009092CC /* AppDelegate.swift */; };
 		279013A12AB9F1A0009092CC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013A02AB9F1A0009092CC /* SceneDelegate.swift */; };
 		279013A32AB9F1A0009092CC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013A22AB9F1A0009092CC /* ViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		278380B82AD4794B0092F1D2 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		278380BA2AD481300092F1D2 /* StarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarsView.swift; sourceTree = "<group>"; };
 		2790139B2AB9F1A0009092CC /* RestaurantMVVM+Xib.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RestaurantMVVM+Xib.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2790139E2AB9F1A0009092CC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		279013A02AB9F1A0009092CC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			children = (
 				279013C92AB9FCA2009092CC /* RestaurantListViewController.swift */,
 				279013D62ABB5C7A009092CC /* RestaurantTableViewCell.swift */,
+				278380BA2AD481300092F1D2 /* StarsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 			files = (
 				279013D32AB9FCE6009092CC /* Restaurant.swift in Sources */,
 				279013BE2AB9F26D009092CC /* StartViewModel.swift in Sources */,
+				278380BB2AD481300092F1D2 /* StarsView.swift in Sources */,
 				279013A32AB9F1A0009092CC /* ViewController.swift in Sources */,
 				278380B92AD4794B0092F1D2 /* Resources.swift in Sources */,
 				279013D52AB9FCEE009092CC /* RestaurantList.swift in Sources */,

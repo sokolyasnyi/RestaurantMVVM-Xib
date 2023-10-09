@@ -57,7 +57,6 @@ class StartViewController: UIViewController {
         view.backgroundColor = .white
         setupSubviews()
         setupConstraits()
-
     }
     
     func setupSubviews() {
