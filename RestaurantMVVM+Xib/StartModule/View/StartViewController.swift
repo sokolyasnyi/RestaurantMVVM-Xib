@@ -7,8 +7,13 @@
 
 import UIKit
 
+protocol StartViewControllerDelegate: AnyObject {
+    func pressRestaurantButton()
+    func pressCustomerButton()
+}
+
 class StartViewController: UIViewController {
-        
+    
     var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -50,6 +55,7 @@ class StartViewController: UIViewController {
         return button
     }()
     
+    weak var delegate: StartViewControllerDelegate?
     var viewModel: StartViewModelProtocol!
     
     override func viewDidLoad() {
@@ -82,11 +88,13 @@ class StartViewController: UIViewController {
     }
     
     @objc func pressRestaurantButton() {
-        viewModel.showRestaurantModule()
+//        viewModel.showRestaurantModule()
+        delegate?.pressRestaurantButton()
     }
     
     @objc func pressCustomerButton() {
-        viewModel.showCustomerModule()
+//        viewModel.showCustomerModule()
+        delegate?.pressCustomerButton()
     }
     
 }
