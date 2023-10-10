@@ -61,7 +61,7 @@ class RestaurantListViewController: UIViewController {
         
         setupConstraints()
         
-        // Подписка на изменения состояния ViewModel
+//         Подписка на изменения состояния ViewModel
         viewModel.stateChangeHandler = { [weak self] state in
             DispatchQueue.main.async {
                 self?.handleViewState(state)

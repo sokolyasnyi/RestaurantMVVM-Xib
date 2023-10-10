@@ -9,6 +9,7 @@ import Foundation
 
 protocol RestaurantListViewModelProtocol {
     init(router: RouterProtocol, networkService: NetworkServiceProtocol)
+    init(networkService: NetworkServiceProtocol)
     var restaurantList: [Restaurant] {get set}
     var filtredRestaurantList: [Restaurant]? {get set}
     var stateChangeHandler: ((RestaurantListViewState) -> Void)? {get set}
@@ -24,7 +25,6 @@ enum RestaurantListViewState {
 }
 
 class RestaurantListViewModel: RestaurantListViewModelProtocol {
-    
     
     var router: RouterProtocol?
     var networkService: NetworkServiceProtocol?
@@ -51,6 +51,11 @@ class RestaurantListViewModel: RestaurantListViewModelProtocol {
     
     required init(router: RouterProtocol, networkService: NetworkServiceProtocol) {
         self.router = router
+        self.networkService = networkService
+        fetchRestaurantList()
+    }
+    
+    required init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
         fetchRestaurantList()
     }
