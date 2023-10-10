@@ -20,7 +20,6 @@ class ApplicationCoordinator: Coordinator {
     init(window: UIWindow) {
         self.window = window
         self.rootViewController = UINavigationController()
-        rootViewController.navigationBar.prefersLargeTitles = true
     
         startCoordinator = StartCoordinator(presenter: rootViewController)
         startCoordinator.start()
