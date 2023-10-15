@@ -10,12 +10,10 @@ import UIKit
 class RestaurantListCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var restaurantListViewController: RestaurantListViewController?
-    private let networkSerivce: NetworkServiceProtocol
     private let viewModel: RestaurantListViewModelProtocol
     
-    init(presenter: UINavigationController, networkSerivce: NetworkServiceProtocol, viewModel: RestaurantListViewModelProtocol) {
+    init(presenter: UINavigationController, viewModel: RestaurantListViewModelProtocol) {
         self.presenter = presenter
-        self.networkSerivce = networkSerivce
         self.viewModel = viewModel
     }
     
