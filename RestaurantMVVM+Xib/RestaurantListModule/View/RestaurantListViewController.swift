@@ -7,9 +7,12 @@
 
 import UIKit
 
-class RestaurantListViewController: UIViewController {
+final class RestaurantListViewController: UIViewController {
 
-    private let searchController = UISearchController(searchResultsController: nil)
+    private var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        return searchController
+    }()
     
     var restaurantTableView: UITableView = {
         let tableView = UITableView()
@@ -25,40 +28,24 @@ class RestaurantListViewController: UIViewController {
         return activityIndicator
     }()
     
-    var viewModel: RestaurantListViewModelProtocol!
-    
     private var isSearchBarEmpty: Bool {
         guard let text = searchController.searchBar.text else {return false}
         return text.isEmpty
     }
+    
     private var isFiltering: Bool {
         return searchController.isActive && !isSearchBarEmpty
     }
         
+    var viewModel: RestaurantListViewModelProtocol!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .white
-        
-        view.addSubview(restaurantTableView)
-        view.addSubview(loadingActivityIndicator)
-        
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchBar.placeholder = "Search for Shops and Restaurants"
-        searchController.searchBar.searchTextField.font = Resources.Fonts.system14Regular
-        searchController.automaticallyShowsSearchResultsController = true
-        
-        navigationItem.searchController = searchController
-        definesPresentationContext = true
-        navigationController?.navigationBar.tintColor = .black
-
-
-        restaurantTableView.delegate = self
-        restaurantTableView.dataSource = self
-        restaurantTableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
-        
+        setupView()
+        setupSearchController()
+        setupTableView()
         setupConstraints()
         
 //         Подписка на изменения состояния ViewModel
@@ -67,10 +54,6 @@ class RestaurantListViewController: UIViewController {
                 self?.handleViewState(state)
             }
         }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -91,6 +74,31 @@ class RestaurantListViewController: UIViewController {
             print("Error")
             loadingActivityIndicator.stopAnimating()
         }
+    }
+    
+    private func setupView() {
+        view.backgroundColor = .white
+        
+        view.addSubview(restaurantTableView)
+        view.addSubview(loadingActivityIndicator)
+    }
+    
+    private func setupSearchController() {
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for Shops and Restaurants"
+        searchController.searchBar.searchTextField.font = Resources.Fonts.system14Regular
+        searchController.automaticallyShowsSearchResultsController = true
+        
+        navigationItem.searchController = searchController
+        definesPresentationContext = true
+        navigationController?.navigationBar.tintColor = .black
+    }
+    
+    private func setupTableView() {
+        restaurantTableView.delegate = self
+        restaurantTableView.dataSource = self
+        restaurantTableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
     }
     
     func setupConstraints() {

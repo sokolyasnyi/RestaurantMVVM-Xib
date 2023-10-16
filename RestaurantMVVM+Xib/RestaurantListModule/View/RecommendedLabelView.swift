@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecommendedLabelView: UIView {
+final class RecommendedLabelView: UIView {
     
     var textLabel: UILabel = {
         let label = UILabel()
@@ -19,10 +19,7 @@ class RecommendedLabelView: UIView {
     
     init() {
         super.init(frame: .zero)
-        addSubview(textLabel)
-        backgroundColor = Resources.Colors.darkGray
-        layer.cornerRadius = 4
-
+        setupView()
         setupConstraints()
     }
     
@@ -30,7 +27,13 @@ class RecommendedLabelView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupConstraints() {
+    private func setupView() {
+        addSubview(textLabel)
+        backgroundColor = Resources.Colors.darkGray
+        layer.cornerRadius = 4
+    }
+    
+    private func setupConstraints() {
         textLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 6).isActive = true
         textLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 2).isActive = true
         textLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -6).isActive = true
