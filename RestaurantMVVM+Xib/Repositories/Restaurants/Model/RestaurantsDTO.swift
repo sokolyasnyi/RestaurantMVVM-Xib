@@ -8,11 +8,23 @@
 import Foundation
 
 internal struct RestaurantsDTO: Decodable {
-    let FHRSEstablishment: FHRSEstablishment
+    let FHRSEstablishment: FHRSEstablishmentDTO
 }
 
-struct FHRSEstablishment: Decodable {
-    let header: [String : String]
+struct HeaderDTO: Decodable {
+    let extractDate: String
+    let itemCount: Int
+    let returnCode: String
+    
+    enum CodingKeys: String, CodingKey {
+        case extractDate = "ExtractDate"
+        case itemCount = "ItemCount"
+        case returnCode = "ReturnCode"
+    }
+}
+
+struct FHRSEstablishmentDTO: Decodable {
+    let header: HeaderDTO
     let establishmentCollection: [EstablishmentCollection]
     
     enum CodingKeys: String, CodingKey {
@@ -24,13 +36,16 @@ struct FHRSEstablishment: Decodable {
 struct EstablishmentCollection: Decodable {
     let businessName: String
     let ratingValue: String
-    var addressLine1: String = ""
-    let fhrsId: Int
+    var addressLine1: String { return _addressLine1 ?? "no name" }
+    var fhrsId: Int { return _fhrsId ?? 0 }
+    
+    private var _addressLine1: String?
+    private var _fhrsId: Int?
     
     enum CodingKeys: String, CodingKey {
         case businessName = "BusinessName"
         case ratingValue = "RatingValue"
-        case addressLine1 = "AddressLine1"
-        case fhrsId = "FHRSID"
+        case _addressLine1 = "AddressLine1"
+        case _fhrsId = "FHRSID"
     }
 }

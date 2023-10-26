@@ -11,27 +11,36 @@ final internal class RestaurantsRemoteRepository: RestaurantsRepository {
     
     private let httpClient: HTTPClient
     private let api: RestaurantsAPI
+    private let executionQueue: DispatchQueue
     
-    internal init(httpClient: HTTPClient, api: RestaurantsAPI) {
+    internal init(httpClient: HTTPClient, api: RestaurantsAPI, executionQueue: DispatchQueue = .main) {
         self.httpClient = httpClient
         self.api = api
+        self.executionQueue = executionQueue
     }
     
     func getRestaurants(handler: @escaping (RestaurantResult) -> Void) {
+        print(#function)
         httpClient.get(api.restaurantsURL) { [weak self] result in
-            switch result {
-            case .success(let data):
-                if let dto = Self.parse(type: RestaurantsDTO.self, data: data) {
-                    handler(.success(dto.toData))
-                } else {
-                    handler(.failure(.notParsable(data)))
+            self?.execute {
+                switch result {
+                case .success(let data):
+                    if let dto = Self.parse(type: RestaurantsDTO.self, data: data) {
+                        handler(.success(dto.toData))
+                    } else {
+                        handler(.failure(.notParsable(data)))
+                    }
+                case .failure(let error):
+                    handler(.failure(.fetchError(error)))
                 }
-            case .failure(let error):
-                handler(.failure(.fetchError(error)))
             }
         }
     }
     
+    //MARK: - Helpers
+    private func execute(action: @escaping () -> Void) {
+        executionQueue.async(execute: action)
+    }
     
     private static func parse<T: Decodable>(type: T.Type, data: Data) -> T? {
         return try? JSONDecoder().decode(T.self, from: data)

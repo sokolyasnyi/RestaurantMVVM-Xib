@@ -58,6 +58,7 @@ final class RestaurantListViewModel: RestaurantListViewModelProtocol {
     }
     
     init(repository: RestaurantsRepository, onSuccess: @escaping ([Restaurant]) -> Void, onError: @escaping (String) -> Void) {
+        print(#function)
         self.repository = repository
         self.onSuccess = onSuccess
         self.onError = onError
@@ -65,13 +66,17 @@ final class RestaurantListViewModel: RestaurantListViewModelProtocol {
     }
     
     func fetchRestaurants() {
+        print(#function)
         repository.getRestaurants { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let restaurantsData):
                 print(restaurantsData)
-                self?.onSuccess(restaurantsData.restaurants)
+                self.restaurantList = restaurantsData.restaurants
+//                self.onSuccess(restaurantsData.restaurants)
             case .failure(let error):
-                self?.onError(error.localizedDescription)
+                print(error)
+                self.onError(error.localizedDescription)
             }
         }
     }

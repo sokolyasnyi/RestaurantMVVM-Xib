@@ -82,7 +82,7 @@ final class RestaurantListViewController: UIViewController {
     }
     
     func onError(errorMessage: String) {
-        print(Self.self, #function)
+        print(Self.self, #function, errorMessage)
     }
     
     
