@@ -16,8 +16,14 @@ public final class URLSessionHTTPClient: HTTPClient {
     
     public func get(_ url: URL, responseHandler: @escaping (ResponseResult) -> Void) {
         session.dataTask(with: url) { data, response, error in
-//            let handledResponse =
-        }
+            let handledResponse = Self.handle(data: data, error: error, response: response)
+            switch handledResponse {
+            case .success(let _data):
+                responseHandler(.success(_data))
+            case .failure(let _error):
+                responseHandler(.failure(_error))
+            }
+        }.resume()
     }
 }
 

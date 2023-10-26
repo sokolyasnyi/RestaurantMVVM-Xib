@@ -15,7 +15,6 @@ class RestaurantListCoordinator: Coordinator {
     
     init(presenter: UINavigationController, environment: RestaurantsAPI) {
         self.presenter = presenter
-//        self.viewModel = viewModel
         self.environment = environment
     }
     

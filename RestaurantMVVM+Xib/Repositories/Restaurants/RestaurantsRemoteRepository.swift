@@ -48,6 +48,16 @@ fileprivate extension RestaurantsDTO {
         
         guard let data = data else { return [] }
         
+        let array = data.map { doc in
+            let restaurant = Restaurant(id: doc.fhrsId,
+                                        name: doc.businessName ,
+                                        ratingCount: doc.ratingValue,
+                                        address: doc.addressLine1)
+            return restaurant
+        }
+        
+        return array
+        /*
         let array = data.filter { doc in
             guard let businessType = doc["BusinessType"] as? String else { return false}
             if businessType == "Restaurant/Cafe/Canteen" {
@@ -60,6 +70,6 @@ fileprivate extension RestaurantsDTO {
             return restaurant
         }
         return array
-        
+        */
     }
 }

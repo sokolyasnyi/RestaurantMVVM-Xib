@@ -53,14 +53,30 @@ struct Restaurant {
         
         if let ratingCount = data["RatingValue"] as? String {
             switch ratingCount {
-                case "1": self.ratingCount = .one
-                case "2": self.ratingCount = .two
-                case "3": self.ratingCount = .three
-                case "4": self.ratingCount = .four
-                case "5": self.ratingCount = .five
-                default: print("rating not found")
+            case "1": self.ratingCount = .one
+            case "2": self.ratingCount = .two
+            case "3": self.ratingCount = .three
+            case "4": self.ratingCount = .four
+            case "5": self.ratingCount = .five
+            default: print("rating not found")
             }
         }
     }
+    
+    init(id: String, name: String, ratingCount: String, address: String) {
+        self.id = id
+        self.name = name
+        self.address = address
         
+        switch ratingCount {
+        case "1": self.ratingCount = .one
+        case "2": self.ratingCount = .two
+        case "3": self.ratingCount = .three
+        case "4": self.ratingCount = .four
+        case "5": self.ratingCount = .five
+        default: print("rating not found")
+        }
+    }
+    
+    
 }
