@@ -14,6 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
 //        DIContainer.shared.register(NetworkServiceProtocol.self, service: NetworkService())
+        DIContainer.shared.register(HTTPClient.self, service: URLSessionHTTPClient())
         
         return true
     }

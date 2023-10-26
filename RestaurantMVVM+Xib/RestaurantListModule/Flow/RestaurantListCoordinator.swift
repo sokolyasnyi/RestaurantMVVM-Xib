@@ -42,7 +42,8 @@ class RestaurantListCoordinator: Coordinator {
 
 fileprivate extension RestaurantListCoordinator {
     func makeRepository(environment: RestaurantsAPI) -> RestaurantsRepository {
-        RestaurantsRemoteRepository(httpClient: URLSessionHTTPClient(),
+        let urlSessionHTTPClient = DIContainer.shared.resolve(HTTPClient.self)
+        return RestaurantsRemoteRepository(httpClient: urlSessionHTTPClient,
                                     api: environment)
     }
     
