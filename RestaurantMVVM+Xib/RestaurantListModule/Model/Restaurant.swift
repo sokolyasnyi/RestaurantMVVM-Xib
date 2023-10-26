@@ -29,6 +29,7 @@ enum RatingsStars: Int {
 struct Restaurant {
     let id: String?
     let name: String?
+    let businessType: String?
     var ratingCount: RatingsStars? = .one
     var address: String?
     var isRecommended: Bool {
@@ -39,9 +40,10 @@ struct Restaurant {
         }
     }
     
-    init(id: String, name: String, ratingCount: RatingsStars, address: String, isRecommended: Bool) {
+    init(id: String, name: String, businessType: String, ratingCount: RatingsStars, address: String, isRecommended: Bool) {
         self.id = id
         self.name = name
+        self.businessType = businessType
         self.ratingCount = ratingCount
         self.address = address
     }
@@ -49,6 +51,7 @@ struct Restaurant {
     init(data: Dictionary<String, Any>) {
         self.id = String("\(data["FHRSID"] as? Int)")
         self.name = data["BusinessName"] as? String
+        self.businessType = data["BusinessType"] as? String
         self.address = data["AddressLine1"] as? String
         
         if let ratingCount = data["RatingValue"] as? String {
@@ -63,9 +66,10 @@ struct Restaurant {
         }
     }
     
-    init(id: String, name: String, ratingCount: String, address: String) {
+    init(id: String, name: String, businessType: String, ratingCount: String, address: String) {
         self.id = id
         self.name = name
+        self.businessType = businessType
         self.address = address
         
         switch ratingCount {

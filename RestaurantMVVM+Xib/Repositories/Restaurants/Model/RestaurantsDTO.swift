@@ -25,7 +25,7 @@ struct HeaderDTO: Decodable {
 
 struct FHRSEstablishmentDTO: Decodable {
     let header: HeaderDTO
-    let establishmentCollection: [EstablishmentCollection]
+    let establishmentCollection: [RestaurantDTO]
     
     enum CodingKeys: String, CodingKey {
         case header = "Header"
@@ -33,9 +33,10 @@ struct FHRSEstablishmentDTO: Decodable {
     }
 }
 
-struct EstablishmentCollection: Decodable {
+struct RestaurantDTO: Decodable {
     let businessName: String
     let ratingValue: String
+    let businessType: String
     var addressLine1: String { return _addressLine1 ?? "no name" }
     var fhrsId: Int { return _fhrsId ?? 0 }
     
@@ -45,6 +46,7 @@ struct EstablishmentCollection: Decodable {
     enum CodingKeys: String, CodingKey {
         case businessName = "BusinessName"
         case ratingValue = "RatingValue"
+        case businessType = "BusinessType"
         case _addressLine1 = "AddressLine1"
         case _fhrsId = "FHRSID"
     }

@@ -36,7 +36,6 @@
 		279013D32AB9FCE6009092CC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013D22AB9FCE6009092CC /* Restaurant.swift */; };
 		279013D52AB9FCEE009092CC /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013D42AB9FCEE009092CC /* RestaurantList.swift */; };
 		279013D82ABB5C7A009092CC /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013D62ABB5C7A009092CC /* RestaurantTableViewCell.swift */; };
-		279013DB2ABB820A009092CC /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279013DA2ABB820A009092CC /* NetworkService.swift */; };
 		279A67452AD55DE1006FB289 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A67442AD55DE0006FB289 /* ApplicationCoordinator.swift */; };
 		279A67482AD563C8006FB289 /* StartCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A67472AD563C8006FB289 /* StartCoordinator.swift */; };
 		279A674B2AD5687C006FB289 /* RestaurantListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279A674A2AD5687C006FB289 /* RestaurantListCoordinator.swift */; };
@@ -74,7 +73,6 @@
 		279013D22AB9FCE6009092CC /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		279013D42AB9FCEE009092CC /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
 		279013D62ABB5C7A009092CC /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
-		279013DA2ABB820A009092CC /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		279A67442AD55DE0006FB289 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		279A67472AD563C8006FB289 /* StartCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCoordinator.swift; sourceTree = "<group>"; };
 		279A674A2AD5687C006FB289 /* RestaurantListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListCoordinator.swift; sourceTree = "<group>"; };
@@ -269,7 +267,6 @@
 		279013DC2ABB8212009092CC /* ServiceLayer */ = {
 			isa = PBXGroup;
 			children = (
-				279013DA2ABB820A009092CC /* NetworkService.swift */,
 				277387392AEA35FA00359470 /* HTTPClient */,
 				2773873A2AEA361100359470 /* URLSessionHTTPClient */,
 			);
@@ -390,7 +387,6 @@
 				2790139F2AB9F1A0009092CC /* AppDelegate.swift in Sources */,
 				279013CB2AB9FCA2009092CC /* RestaurantListViewController.swift in Sources */,
 				279A674B2AD5687C006FB289 /* RestaurantListCoordinator.swift in Sources */,
-				279013DB2ABB820A009092CC /* NetworkService.swift in Sources */,
 				279013A12AB9F1A0009092CC /* SceneDelegate.swift in Sources */,
 				277387412AEA36DF00359470 /* RestaurantsRepository.swift in Sources */,
 			);

@@ -26,6 +26,13 @@ final internal class RestaurantsRemoteRepository: RestaurantsRepository {
                 switch result {
                 case .success(let data):
                     if let dto = Self.parse(type: RestaurantsDTO.self, data: data) {
+                        let filtredData = dto.FHRSEstablishment.establishmentCollection.filter { doc in
+                            if doc.businessType == "Restaurant/Cafe/Canteen" {
+                                return true
+                            } else {
+                                return false
+                            }
+                        }
                         handler(.success(dto.toData))
                     } else {
                         handler(.failure(.notParsable(data)))
@@ -53,13 +60,14 @@ fileprivate extension RestaurantsDTO {
     }
     
     
-    func parseRestaurantsDataToArray(data: [EstablishmentCollection]?) -> Array<Restaurant> {
+    func parseRestaurantsDataToArray(data: [RestaurantDTO]?) -> Array<Restaurant> {
         
         guard let data = data else { return [] }
         
         let array = data.map { doc in
             let restaurant = Restaurant(id: String(doc.fhrsId),
-                                        name: doc.businessName ,
+                                        name: doc.businessName,
+                                        businessType: doc.businessType ,
                                         ratingCount: doc.ratingValue,
                                         address: doc.addressLine1)
             return restaurant
