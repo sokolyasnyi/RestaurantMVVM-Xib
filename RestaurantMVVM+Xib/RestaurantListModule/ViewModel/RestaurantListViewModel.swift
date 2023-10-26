@@ -8,11 +8,15 @@
 import Foundation
 
 protocol RestaurantListViewModelProtocol {
-    init(networkService: NetworkServiceProtocol)
+    init(repository: RestaurantsRepository,
+         onSuccess: @escaping (_ restaurants: [Restaurant]) -> Void,
+         onError: @escaping (_ errorMessage: String) -> Void
+    )
+    
     var restaurantList: [Restaurant] {get set}
     var filtredRestaurantList: [Restaurant]? {get set}
     var stateChangeHandler: ((RestaurantListViewState) -> Void)? {get set}
-    func fetchRestaurantList()
+//    func fetchRestaurantList()
     func filterContentForSearchText(_ searchText: String)
 
 }
@@ -23,10 +27,16 @@ enum RestaurantListViewState {
     case error
 }
 
-class RestaurantListViewModel: RestaurantListViewModelProtocol {
+final class RestaurantListViewModel: RestaurantListViewModelProtocol {
+    
+    private let repository: RestaurantsRepository
+    private let onSuccess: (_ restaurants: [Restaurant]) -> Void
+    private let onError: (_ errorMessage: String) -> Void
+    
+    var stateChangeHandler: ((RestaurantListViewState) -> Void)?
+    
     
     var networkService: NetworkServiceProtocol?
-    var stateChangeHandler: ((RestaurantListViewState) -> Void)?
     
     var restaurantList: [Restaurant] = [] {
         didSet {
@@ -47,10 +57,31 @@ class RestaurantListViewModel: RestaurantListViewModelProtocol {
         }
     }
     
+    init(repository: RestaurantsRepository, onSuccess: @escaping ([Restaurant]) -> Void, onError: @escaping (String) -> Void) {
+        self.repository = repository
+        self.onSuccess = onSuccess
+        self.onError = onError
+        fetchRestaurants()
+    }
+    
+    func fetchRestaurants() {
+        repository.getRestaurants { [weak self] result in
+            switch result {
+            case .success(let restaurantsData):
+                self?.onSuccess(restaurantsData.restaurants)
+            case .failure(let error):
+                self?.onError(error.localizedDescription)
+            }
+        }
+    }
+    
+    /*
     required init(networkService: NetworkServiceProtocol = DIContainer.shared.resolve(NetworkServiceProtocol.self)) {
         self.networkService = networkService
         fetchRestaurantList()
     }
+    
+    
     
     func fetchRestaurantList() {
         isLoading = true
@@ -75,6 +106,7 @@ class RestaurantListViewModel: RestaurantListViewModelProtocol {
         print(#function)
 
     }
+     */
     
     func filterContentForSearchText(_ searchText: String) {
         filtredRestaurantList = restaurantList.filter({ (restaurant: Restaurant) -> Bool in

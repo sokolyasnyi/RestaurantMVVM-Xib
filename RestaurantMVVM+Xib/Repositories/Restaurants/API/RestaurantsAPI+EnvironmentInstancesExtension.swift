@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+extension RestaurantsAPI {
+    static var dev: Self {
+        RestaurantsAPI(environment: RestaurantsEnvironment())
+    }
+}

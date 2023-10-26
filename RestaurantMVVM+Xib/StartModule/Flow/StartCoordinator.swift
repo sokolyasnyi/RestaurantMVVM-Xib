@@ -28,8 +28,9 @@ class StartCoordinator: Coordinator {
 //MARK: - StartViewControllerDelegate
 extension StartCoordinator: StartViewControllerDelegate {
     func pressRestaurantButton() {
-        let viewModel: RestaurantListViewModel = RestaurantListViewModel()
-        let restaurantListCoordinator = RestaurantListCoordinator(presenter: presenter, viewModel: viewModel)
+        
+        let restaurantListCoordinator = RestaurantListCoordinator(presenter: presenter, environment: .dev)
+        
         restaurantListCoordinator.start()
     }
     

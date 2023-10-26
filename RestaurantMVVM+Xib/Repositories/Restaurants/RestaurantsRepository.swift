@@ -6,3 +6,8 @@
 //
 
 import Foundation
+
+protocol RestaurantsRepository {
+    typealias RestaurantResult = Result<RestaurantsData, RestaurantsError>
+    func getRestaurants(handler: @escaping (RestaurantResult) -> Void)
+}

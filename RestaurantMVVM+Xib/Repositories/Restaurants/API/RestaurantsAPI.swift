@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+struct RestaurantsAPI {
+    let environment: Environment
+    
+    init(environment: Environment) {
+        self.environment = environment
+    }
+    
+}

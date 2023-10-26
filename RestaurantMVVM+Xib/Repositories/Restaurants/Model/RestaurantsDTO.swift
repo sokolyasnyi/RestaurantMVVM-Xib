@@ -6,3 +6,28 @@
 //
 
 import Foundation
+
+internal struct RestaurantsDTO: Decodable {
+    let FHRSEstablishment: FHRSEstablishment
+}
+
+struct FHRSEstablishment: Decodable {
+    let header: [String : String]
+    let establishmentCollection: [EstablishmentCollection]
+    
+    enum CodingKeys: String, CodingKey {
+        case header = "Header"
+        case establishmentCollection = "EstablishmentCollection"
+    }
+}
+
+struct EstablishmentCollection: Decodable {
+    let businessName: String
+    let ratingValue: String
+    
+    enum CodingKeys: String, CodingKey {
+        case businessName = "BusinessName"
+        case ratingValue = "RatingValue"
+
+    }
+}
