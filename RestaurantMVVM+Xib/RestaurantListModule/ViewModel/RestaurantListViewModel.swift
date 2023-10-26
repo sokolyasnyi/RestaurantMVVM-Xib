@@ -68,6 +68,7 @@ final class RestaurantListViewModel: RestaurantListViewModelProtocol {
         repository.getRestaurants { [weak self] result in
             switch result {
             case .success(let restaurantsData):
+                print(restaurantsData)
                 self?.onSuccess(restaurantsData.restaurants)
             case .failure(let error):
                 self?.onError(error.localizedDescription)

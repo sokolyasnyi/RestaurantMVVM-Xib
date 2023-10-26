@@ -49,7 +49,7 @@ fileprivate extension RestaurantsDTO {
         guard let data = data else { return [] }
         
         let array = data.map { doc in
-            let restaurant = Restaurant(id: doc.fhrsId,
+            let restaurant = Restaurant(id: String(doc.fhrsId),
                                         name: doc.businessName ,
                                         ratingCount: doc.ratingValue,
                                         address: doc.addressLine1)

@@ -24,8 +24,8 @@ struct FHRSEstablishment: Decodable {
 struct EstablishmentCollection: Decodable {
     let businessName: String
     let ratingValue: String
-    let addressLine1: String
-    let fhrsId: String
+    var addressLine1: String = ""
+    let fhrsId: Int
     
     enum CodingKeys: String, CodingKey {
         case businessName = "BusinessName"
