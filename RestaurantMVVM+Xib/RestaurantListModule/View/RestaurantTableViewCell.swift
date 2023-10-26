@@ -102,7 +102,7 @@ class RestaurantTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupSubviews() {
+    private func setupSubviews() {
         self.addSubview(containerView)
         containerView.addSubview(restaurantImageView)
         
@@ -117,7 +117,7 @@ class RestaurantTableViewCell: UITableViewCell {
         containerView.addSubview(recommendedAndAdressStackView)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         containerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
         containerView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4).isActive = true
         containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true

@@ -12,7 +12,7 @@ protocol StartViewControllerDelegate: AnyObject {
     func pressCustomerButton()
 }
 
-class StartViewController: UIViewController {
+final class StartViewController: UIViewController {
     
     var titleLabel: UILabel = {
         let label = UILabel()
@@ -60,12 +60,16 @@ class StartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        setupView()
         setupSubviews()
         setupConstraits()
     }
     
-    func setupSubviews() {
+    private func setupView() {
+        view.backgroundColor = .white
+    }
+    
+    private func setupSubviews() {
         view.addSubview(titleLabel)
         view.addSubview(buttonsStackView)
         buttonsStackView.addArrangedSubview(restaurantButton)
@@ -76,7 +80,7 @@ class StartViewController: UIViewController {
         
     }
     
-    func setupConstraits() {
+    private func setupConstraits() {
         buttonsStackView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32).isActive = true
         buttonsStackView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32).isActive = true
         buttonsStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -88,12 +92,10 @@ class StartViewController: UIViewController {
     }
     
     @objc func pressRestaurantButton() {
-//        viewModel.showRestaurantModule()
         delegate?.pressRestaurantButton()
     }
     
     @objc func pressCustomerButton() {
-//        viewModel.showCustomerModule()
         delegate?.pressCustomerButton()
     }
     

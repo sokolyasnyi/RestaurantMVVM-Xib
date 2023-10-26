@@ -7,7 +7,7 @@
 
 import UIKit
 
-class StarsView: UIView {
+final class StarsView: UIView {
     
     var containerStackView: UIStackView = {
         let stackView = UIStackView()
@@ -61,13 +61,8 @@ class StarsView: UIView {
     
     init() {
         super.init(frame: .zero)
-        self.addSubview(containerStackView)
-        containerStackView.addArrangedSubview(firstStarImageView)
-        containerStackView.addArrangedSubview(secondStarImageView)
-        containerStackView.addArrangedSubview(thirdStarImageView)
-        containerStackView.addArrangedSubview(fourStarImageView)
-        containerStackView.addArrangedSubview(fiveStarImageView)
-        
+
+        setupSubviews()
         setupConstraints()
     }
     
@@ -75,7 +70,16 @@ class StarsView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupConstraints() {
+    private func setupSubviews() {
+        self.addSubview(containerStackView)
+        containerStackView.addArrangedSubview(firstStarImageView)
+        containerStackView.addArrangedSubview(secondStarImageView)
+        containerStackView.addArrangedSubview(thirdStarImageView)
+        containerStackView.addArrangedSubview(fourStarImageView)
+        containerStackView.addArrangedSubview(fiveStarImageView)
+    }
+    
+    private func setupConstraints() {
         containerStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
         containerStackView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         containerStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
