@@ -9,7 +9,7 @@ import UIKit
 
 final class RecommendedLabelView: UIView {
     
-    var textLabel: UILabel = {
+    private var textLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Recommended"

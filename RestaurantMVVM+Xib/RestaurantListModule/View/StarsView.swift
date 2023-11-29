@@ -9,7 +9,7 @@ import UIKit
 
 final class StarsView: UIView {
     
-    var containerStackView: UIStackView = {
+    private var containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -19,7 +19,7 @@ final class StarsView: UIView {
         return stackView
     }()
     
-    var firstStarImageView: UIImageView = {
+    private var firstStarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Resources.Asset.starImage
@@ -27,7 +27,7 @@ final class StarsView: UIView {
         return imageView
     }()
     
-    var secondStarImageView: UIImageView = {
+    private var secondStarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Resources.Asset.starImage
@@ -35,7 +35,7 @@ final class StarsView: UIView {
         return imageView
     }()
     
-    var thirdStarImageView: UIImageView = {
+    private var thirdStarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Resources.Asset.starImage
@@ -43,7 +43,7 @@ final class StarsView: UIView {
         return imageView
     }()
     
-    var fourStarImageView: UIImageView = {
+    private var fourStarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Resources.Asset.starImage
@@ -51,7 +51,7 @@ final class StarsView: UIView {
         return imageView
     }()
     
-    var fiveStarImageView: UIImageView = {
+    private var fiveStarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Resources.Asset.starImage

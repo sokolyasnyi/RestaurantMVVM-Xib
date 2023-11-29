@@ -10,7 +10,7 @@ import UIKit
 class RestaurantTableViewCell: UITableViewCell {
     
     
-    var containerView: UIView = {
+    private var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
@@ -18,7 +18,7 @@ class RestaurantTableViewCell: UITableViewCell {
         return view
     }()
     
-    var restaurantImageView: UIImageView = {
+    private var restaurantImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Resources.Asset.restaurantImage
@@ -26,7 +26,7 @@ class RestaurantTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    var nameAndStarsStackView: UIStackView = {
+    private var nameAndStarsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -36,20 +36,20 @@ class RestaurantTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    var nameLabel: UILabel = {
+    private var nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Resources.Fonts.system20Semibold
         return label
     }()
     
-    var starsView: StarsView = {
+    private var starsView: StarsView = {
         let view = StarsView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    var recommendedAndAdressStackView: UIStackView = {
+    private var recommendedAndAdressStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -59,13 +59,13 @@ class RestaurantTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    var recommendedContainerView: RecommendedLabelView = {
+    private var recommendedContainerView: RecommendedLabelView = {
         let view = RecommendedLabelView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-    var pinAndAddessStackView: UIStackView = {
+    private var pinAndAddessStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .horizontal
@@ -75,7 +75,7 @@ class RestaurantTableViewCell: UITableViewCell {
         return stackView
     }()
     
-    var pinImageView: UIImageView = {
+    private var pinImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = Resources.Asset.pinImage
@@ -83,7 +83,7 @@ class RestaurantTableViewCell: UITableViewCell {
         return imageView
     }()
     
-    var addressLabel: UILabel = {
+    private var addressLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = Resources.Fonts.system12Regular

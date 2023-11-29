@@ -14,14 +14,14 @@ final class RestaurantListViewController: UIViewController {
         return searchController
     }()
     
-    var restaurantTableView: UITableView = {
+    private var restaurantTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.separatorStyle = .none
         return tableView
     }()
     
-    var loadingActivityIndicator: UIActivityIndicatorView = {
+    private var loadingActivityIndicator: UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         activityIndicator.hidesWhenStopped = true
@@ -101,7 +101,7 @@ final class RestaurantListViewController: UIViewController {
         restaurantTableView.register(RestaurantTableViewCell.self, forCellReuseIdentifier: RestaurantTableViewCell.reuseIdentifier)
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         restaurantTableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
         restaurantTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
         restaurantTableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: 0).isActive = true

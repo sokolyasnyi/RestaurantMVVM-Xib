@@ -14,7 +14,7 @@ protocol StartViewControllerDelegate: AnyObject {
 
 final class StartViewController: UIViewController {
     
-    var titleLabel: UILabel = {
+    private var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "You are a"
@@ -22,7 +22,7 @@ final class StartViewController: UIViewController {
         return label
     }()
     
-    var buttonsStackView: UIStackView = {
+    private var buttonsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
@@ -33,7 +33,7 @@ final class StartViewController: UIViewController {
     }()
     
     
-    var restaurantButton: UIButton = {
+    private var restaurantButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Restaurant", for: .normal)
@@ -44,7 +44,7 @@ final class StartViewController: UIViewController {
         return button
     }()
     
-    var customerButton: UIButton = {
+    private var customerButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Customer", for: .normal)
