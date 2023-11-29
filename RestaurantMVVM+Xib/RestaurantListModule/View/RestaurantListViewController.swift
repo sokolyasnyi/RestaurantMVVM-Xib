@@ -76,6 +76,16 @@ final class RestaurantListViewController: UIViewController {
         }
     }
     
+    func onSuccess(_ restaustants: [Restaurant]) {
+        restaurantTableView.reloadData()
+        print(Self.self, #function)
+    }
+    
+    func onError(errorMessage: String) {
+        print(Self.self, #function, errorMessage)
+    }
+    
+    
     private func setupView() {
         view.backgroundColor = .white
         

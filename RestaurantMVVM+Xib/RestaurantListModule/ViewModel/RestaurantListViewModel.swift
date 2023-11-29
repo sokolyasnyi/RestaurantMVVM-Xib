@@ -8,11 +8,15 @@
 import Foundation
 
 protocol RestaurantListViewModelProtocol {
-    init(networkService: NetworkServiceProtocol)
+    init(repository: RestaurantsRepository,
+         onSuccess: @escaping (_ restaurants: [Restaurant]) -> Void,
+         onError: @escaping (_ errorMessage: String) -> Void
+    )
+    
     var restaurantList: [Restaurant] {get set}
     var filtredRestaurantList: [Restaurant]? {get set}
     var stateChangeHandler: ((RestaurantListViewState) -> Void)? {get set}
-    func fetchRestaurantList()
+//    func fetchRestaurantList()
     func filterContentForSearchText(_ searchText: String)
 
 }
@@ -23,9 +27,12 @@ enum RestaurantListViewState {
     case error
 }
 
-class RestaurantListViewModel: RestaurantListViewModelProtocol {
+final class RestaurantListViewModel: RestaurantListViewModelProtocol {
     
-    var networkService: NetworkServiceProtocol?
+    private let repository: RestaurantsRepository
+    private let onSuccess: (_ restaurants: [Restaurant]) -> Void
+    private let onError: (_ errorMessage: String) -> Void
+    
     var stateChangeHandler: ((RestaurantListViewState) -> Void)?
     
     var restaurantList: [Restaurant] = [] {
@@ -47,33 +54,28 @@ class RestaurantListViewModel: RestaurantListViewModelProtocol {
         }
     }
     
-    required init(networkService: NetworkServiceProtocol = DIContainer.shared.resolve(NetworkServiceProtocol.self)) {
-        self.networkService = networkService
-        fetchRestaurantList()
+    init(repository: RestaurantsRepository, onSuccess: @escaping ([Restaurant]) -> Void, onError: @escaping (String) -> Void) {
+        print(#function)
+        self.repository = repository
+        self.onSuccess = onSuccess
+        self.onError = onError
+        fetchRestaurants()
     }
     
-    func fetchRestaurantList() {
-        isLoading = true
-        DispatchQueue.global(qos: .default).async {
-            self.networkService?.searchRestaurants(completion: { [weak self] result in
-                guard let self = self else { return }
-                
-                DispatchQueue.main.async {
-                    self.isLoading = false
-                    switch result {
-                    case .success(let restaurants):
-                        if let restaurants = restaurants {
-                            self.restaurantList = restaurants
-                            print("Count restaurant \(self.restaurantList.count)")
-                        }
-                    case .failure(let error):
-                        self.error = error
-                    }
-                }
-            })
-        }
+    func fetchRestaurants() {
         print(#function)
-
+        repository.getRestaurants { [weak self] result in
+            guard let self = self else { return }
+            switch result {
+            case .success(let restaurantsData):
+                print(restaurantsData)
+                self.restaurantList = restaurantsData.filtredRestaurants
+//                self.onSuccess(restaurantsData.restaurants)
+            case .failure(let error):
+                print(error)
+                self.onError(error.localizedDescription)
+            }
+        }
     }
     
     func filterContentForSearchText(_ searchText: String) {

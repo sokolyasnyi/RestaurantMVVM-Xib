@@ -13,7 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        DIContainer.shared.register(NetworkServiceProtocol.self, service: NetworkService())
+//        DIContainer.shared.register(NetworkServiceProtocol.self, service: NetworkService())
+        DIContainer.shared.register(HTTPClient.self, service: URLSessionHTTPClient())
         
         return true
     }
